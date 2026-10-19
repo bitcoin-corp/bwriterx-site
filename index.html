@@ -11,14 +11,14 @@
 <meta property="og:site_name" content="bWriterX">
 <meta property="og:title" content="bWriterX · Write it down. Keep it forever.">
 <meta property="og:description" content="Bitcoin Writer: every save goes to Bitcoin as a new version, encrypted and timestamped. Web and Mac today.">
-<meta property="og:image" content="https://bwriterx.com/og-bwriterx-v1.png">
+<meta property="og:image" content="https://bwriterx.com/og-bwriterx-v2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="bWriterX: Write it down. Keep it forever. A document saved to Bitcoin as version 3.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="bWriterX · Write it down. Keep it forever.">
 <meta name="twitter:description" content="Bitcoin Writer: every save goes to Bitcoin as a new version, encrypted and timestamped. Web and Mac today.">
-<meta name="twitter:image" content="https://bwriterx.com/og-bwriterx-v1.png">
+<meta name="twitter:image" content="https://bwriterx.com/og-bwriterx-v2.png">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -158,6 +158,38 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
 .unlock{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-top:1px solid var(--edge);background:rgba(245,184,0,.05);font:600 15px/1.2 var(--hf)}
 .hero .story{max-width:460px;width:100%;justify-self:center}
 .unlock span:last-child{color:var(--gold-hi);white-space:nowrap}
+/* hero animation: one CSS sequence (arrive, staged reveal, pop), base styles = final state */
+html,body{overflow-x:clip}.hero{overflow-x:clip}
+.stage{position:relative;justify-self:center;width:100%;max-width:420px}
+.stage::before{content:"";position:absolute;inset:-8% -10%;z-index:-1;background:radial-gradient(closest-side at 40% 35%,rgba(245,184,0,.2),transparent 70%)}
+.stage.wait,.stage.wait *{animation-play-state:paused!important}
+.dev{position:relative;background:#08080a;border:1px solid var(--edge);border-radius:30px;padding:22px 20px 20px;box-shadow:0 40px 90px -40px rgba(245,184,0,.45);animation:arrive 1s var(--ease) both}
+.sh{display:flex;justify-content:space-between;align-items:center;gap:12px;font:600 14px/1.2 var(--hf);color:var(--muted)}
+.chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{padding:7px 12px;border-radius:999px;background:rgba(245,184,0,.12);color:var(--gold-hi);font:600 12px/1 var(--hf);white-space:nowrap;animation:pop .45s var(--ease) 2.4s both}
+.chip+.chip{animation-delay:2.55s}
+@keyframes arrive{from{opacity:0;transform:translateY(18px) scale(.97)}}
+@keyframes up{from{opacity:0;transform:translateY(8px)}}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.85)}}
+@keyframes slide{from{opacity:0;transform:translateX(-24px)}}
+@keyframes fade{from{opacity:0}}
+@keyframes pulse{50%{opacity:.35}}
+.paper{position:relative;margin-top:16px;background:#f6f1e3;color:#1b1810;border-radius:14px;padding:18px 18px 16px;box-shadow:0 20px 40px -18px rgba(0,0,0,.8);animation:up .7s var(--ease) .3s both}
+.tl{margin:0;font:400 16px/1.7 var(--bf);white-space:nowrap;overflow:hidden;animation:type .5s steps(22,end) both}
+.tl.t0{font:600 19px/1.4 var(--hf);margin-bottom:6px;animation-delay:.6s}
+.tl.t1{animation-delay:.95s}.tl.t2{animation-delay:1.35s}.tl.t3{animation-delay:1.75s}
+.caret{display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-2px;background:#c98f00;animation:fade .1s 2.1s both,pulse 1.1s steps(1) 2.6s infinite}
+.vers{display:flex;align-items:center;gap:6px;margin-top:14px;font:600 12px/1 var(--hf);color:#8a7a55}
+.v{padding:6px 10px;border-radius:999px;border:1px solid #d9cba6;color:#6b5a30;animation:pop .4s var(--ease) both}
+.v1{animation-delay:1.1s}.v2{animation-delay:1.6s}.v3{animation-delay:2.05s;background:var(--grad);border-color:transparent;color:#000}
+.vers i{font-style:normal;color:#b7a77e;animation:fade .3s both}.vers i.a1{animation-delay:1.45s}.vers i.a2{animation-delay:1.9s}
+.stampx{position:absolute;right:14px;bottom:16px;padding:7px 10px;border:2px solid #c98f00;border-radius:8px;color:#a87400;font:700 11px/1 var(--hf);letter-spacing:.08em;text-transform:uppercase;transform:rotate(-7deg);background:rgba(246,241,227,.92);animation:stampin .45s var(--ease) 2.2s both}
+.tx{display:flex;align-items:center;gap:10px;margin-top:14px;padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font:500 12px/1.35 'IBM Plex Mono',ui-monospace,monospace;color:var(--muted);animation:slide .6s var(--ease) 2.5s both}
+.tx svg{flex:none}.tx b{color:var(--ink);font-weight:500}
+@keyframes type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes stampin{from{opacity:0;transform:scale(1.7) rotate(8deg)}}
+@media (max-width:420px){.dev{padding:20px 16px 16px}.tl{font-size:15px}.tl.t0{font-size:17px}.stampx{right:10px;bottom:14px;font-size:10px}.tx{font-size:11px}}
+@media (prefers-reduced-motion:reduce){.stage *{animation:none!important}}
 </style>
 </head>
 <body>
@@ -184,14 +216,20 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
     <p class="hint">Bitcoin Writer <span class="ink">1.5.0</span> for Mac, Apple Silicon and Intel. <a href="#status">What works today</a></p>
   </div>
 
-  <div class="slip" role="img" aria-label="A document saved to Bitcoin as version 3 on the main branch, encrypted, with a price shown before paying.">
-    <div class="slip-h"><span>Saved to chain</span><span class="example">Example</span></div>
-    <div class="slip-who"><div class="av">W</div><div><b>Letter to my daughter</b><small>main · version 3</small></div></div>
-    <div class="ln"><span>Spends</span><span>version 2</span></div>
-    <div class="ln"><span>Text</span><span>Encrypted, only you can open it</span></div>
-    <div class="ln"><span>Time</span><span>Stamped by Bitcoin</span></div>
-    <div class="ln tot"><span>Quote</span><span>a few sats</span></div>
-    <div class="seal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd24d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><span>Every version links to the one before it.</span></div>
+  <div class="stage" role="img" aria-label="An example document writing itself in Bitcoin Writer, then saved to Bitcoin as version 3, linked to versions 1 and 2, with a timestamp and transaction.">
+    <div class="dev">
+      <div class="sh"><span>Bitcoin Writer</span><span class="example">Example</span></div>
+      <div class="paper">
+        <p class="tl t0">Letter to my daughter</p>
+        <p class="tl t1">Dear Ana, I'm writing this down</p>
+        <p class="tl t2">so it lasts longer than my phones.</p>
+        <p class="tl t3">Love, always. Dad<span class="caret" aria-hidden="true"></span></p>
+        <div class="vers"><span class="v v1">v1</span><i class="a1">&rarr;</i><span class="v v2">v2</span><i class="a2">&rarr;</i><span class="v v3">v3</span></div>
+        <span class="stampx">Saved to chain · v3</span>
+      </div>
+      <div class="tx"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd24d" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>19 Oct 2026 · 14:02</b><br>tx 3f9a…c21e · spends v2</span></div>
+      <div class="chips"><span class="chip">&#10003; Encrypted</span><span class="chip">Timestamped by Bitcoin</span></div>
+    </div>
   </div>
 </div>
 
@@ -277,5 +315,13 @@ footer{border-top:1px solid #121317;padding:40px 0 56px;color:var(--dim);font-si
     <span>By The Bitcoin Corporation Ltd.</span>
   </div>
 </footer>
+<script>
+(function(){var st=document.querySelector('.stage');if(!st||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+var cs=st.querySelectorAll('[data-to]');cs.forEach(function(el){el.textContent=(0).toFixed(+el.dataset.dp||0)});st.classList.add('wait');
+function go(){st.classList.remove('wait');cs.forEach(function(el){var to=+el.dataset.to,dp=+el.dataset.dp||0,d=+el.dataset.dur||1300,s=null;
+setTimeout(function(){requestAnimationFrame(function f(t){s=s||t;var k=Math.min(1,(t-s)/d);k=1-Math.pow(1-k,3);el.textContent=(to*k).toLocaleString('en-GB',{minimumFractionDigits:dp,maximumFractionDigits:dp});if(k<1)requestAnimationFrame(f)})},+el.dataset.delay||900)})}
+if(!('IntersectionObserver' in window))return go();
+var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){io.disconnect();go()}},{threshold:.4});io.observe(st)})();
+</script>
 </body>
 </html>

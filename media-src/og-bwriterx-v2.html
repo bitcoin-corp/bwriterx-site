@@ -1,0 +1,87 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;width:1200px;height:630px;background:#000;color:#f4f1e8;font-family:'IBM Plex Sans';position:relative;overflow:hidden}
+body::before{content:"";position:absolute;right:-120px;top:40px;width:720px;height:620px;background:radial-gradient(closest-side,rgba(245,184,0,.22),transparent 70%)}
+.logo{position:absolute;left:72px;top:60px;display:flex;align-items:center;gap:14px;font:700 34px/1 'Space Grotesk';letter-spacing:-.02em}
+.g{color:#ffd24d}
+h1{position:absolute;left:72px;top:150px;margin:0;font:700 84px/1 'Space Grotesk';letter-spacing:-.05em}
+h1 span{background:linear-gradient(180deg,#ffe58a,#ffd24d 55%,#c98f00);-webkit-background-clip:text;color:transparent}
+p{position:absolute;left:72px;top:400px;margin:0;width:600px;font:400 27px/1.35 'IBM Plex Sans';color:#cfcabd}
+.foot{position:absolute;left:72px;bottom:52px;font:500 22px/1 'Space Grotesk';color:#7c7a73}
+.foot b{color:#f4f1e8;font-weight:500}
+.card{position:absolute;right:72px;top:120px;width:390px;background:#0d0e11;border:1px solid #2a2c33;border-radius:22px;padding:26px;transform:rotate(3deg);box-shadow:0 40px 80px -30px rgba(245,184,0,.4)}
+.h{display:flex;justify-content:space-between;font:600 17px/1 'Space Grotesk';color:#a9a69c}
+.ex{font:500 13px/1 'Space Grotesk';letter-spacing:.12em;color:#7c7a73}
+.av{width:52px;height:52px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffe58a,#c98f00);display:grid;place-items:center;font:700 20px/1 'Space Grotesk';color:#000;flex:none}
+.who{display:flex;gap:14px;align-items:center;margin:22px 0 14px}.who b{display:block;font:600 22px/1.2 'Space Grotesk'}.who small{color:#7c7a73;font-size:17px}
+.ln{display:flex;justify-content:space-between;padding:13px 0;border-top:1px solid #1d1e23;font-size:18px;color:#a9a69c}.ln span:last-child{color:#f4f1e8}
+.tot{font:600 22px/1.2 'Space Grotesk';color:#f4f1e8}.tot span:last-child{color:#ffd24d}
+.seal{margin-top:12px;padding:12px 14px;border-radius:12px;background:rgba(245,184,0,.08);border:1px solid rgba(255,210,77,.3);font-size:16px;color:#cfcabd}
+:root{
+  --bg:#000;--ink:#f4f1e8;--muted:#a9a69c;--dim:#7c7a73;
+  --gold:#f5b800;--gold-hi:#ffd24d;--gold-lo:#c98f00;
+  --card:#0d0e11;--edge:#1f2127;--edge-gold:rgba(255,210,77,.28);
+  --grad:linear-gradient(180deg,#ffe58a,#ffd24d 55%,#c98f00);
+  --r:18px;--hf:'Space Grotesk',system-ui,sans-serif;--bf:'IBM Plex Sans',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.8,.2,1);
+}
+.example{font:500 11px/1 var(--hf);letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+/* hero animation: one CSS sequence (arrive, staged reveal, pop), base styles = final state */
+html,body{overflow-x:clip}.hero{overflow-x:clip}
+.stage{position:relative;justify-self:center;width:100%;max-width:420px}
+.stage::before{content:"";position:absolute;inset:-8% -10%;z-index:-1;background:radial-gradient(closest-side at 40% 35%,rgba(245,184,0,.2),transparent 70%)}
+.stage.wait,.stage.wait *{animation-play-state:paused!important}
+.dev{position:relative;background:#08080a;border:1px solid var(--edge);border-radius:30px;padding:22px 20px 20px;box-shadow:0 40px 90px -40px rgba(245,184,0,.45);animation:arrive 1s var(--ease) both}
+.sh{display:flex;justify-content:space-between;align-items:center;gap:12px;font:600 14px/1.2 var(--hf);color:var(--muted)}
+.chips{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{padding:7px 12px;border-radius:999px;background:rgba(245,184,0,.12);color:var(--gold-hi);font:600 12px/1 var(--hf);white-space:nowrap;animation:pop .45s var(--ease) 2.4s both}
+.chip+.chip{animation-delay:2.55s}
+@keyframes arrive{from{opacity:0;transform:translateY(18px) scale(.97)}}
+@keyframes up{from{opacity:0;transform:translateY(8px)}}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.85)}}
+@keyframes slide{from{opacity:0;transform:translateX(-24px)}}
+@keyframes fade{from{opacity:0}}
+@keyframes pulse{50%{opacity:.35}}
+.paper{position:relative;margin-top:16px;background:#f6f1e3;color:#1b1810;border-radius:14px;padding:18px 18px 16px;box-shadow:0 20px 40px -18px rgba(0,0,0,.8);animation:up .7s var(--ease) .3s both}
+.tl{margin:0;font:400 16px/1.7 var(--bf);white-space:nowrap;overflow:hidden;animation:type .5s steps(22,end) both}
+.tl.t0{font:600 19px/1.4 var(--hf);margin-bottom:6px;animation-delay:.6s}
+.tl.t1{animation-delay:.95s}.tl.t2{animation-delay:1.35s}.tl.t3{animation-delay:1.75s}
+.caret{display:inline-block;width:2px;height:1.05em;margin-left:2px;vertical-align:-2px;background:#c98f00;animation:fade .1s 2.1s both,pulse 1.1s steps(1) 2.6s infinite}
+.vers{display:flex;align-items:center;gap:6px;margin-top:14px;font:600 12px/1 var(--hf);color:#8a7a55}
+.v{padding:6px 10px;border-radius:999px;border:1px solid #d9cba6;color:#6b5a30;animation:pop .4s var(--ease) both}
+.v1{animation-delay:1.1s}.v2{animation-delay:1.6s}.v3{animation-delay:2.05s;background:var(--grad);border-color:transparent;color:#000}
+.vers i{font-style:normal;color:#b7a77e;animation:fade .3s both}.vers i.a1{animation-delay:1.45s}.vers i.a2{animation-delay:1.9s}
+.stampx{position:absolute;right:14px;bottom:16px;padding:7px 10px;border:2px solid #c98f00;border-radius:8px;color:#a87400;font:700 11px/1 var(--hf);letter-spacing:.08em;text-transform:uppercase;transform:rotate(-7deg);background:rgba(246,241,227,.92);animation:stampin .45s var(--ease) 2.2s both}
+.tx{display:flex;align-items:center;gap:10px;margin-top:14px;padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font:500 12px/1.35 'IBM Plex Mono',ui-monospace,monospace;color:var(--muted);animation:slide .6s var(--ease) 2.5s both}
+.tx svg{flex:none}.tx b{color:var(--ink);font-weight:500}
+@keyframes type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes stampin{from{opacity:0;transform:scale(1.7) rotate(8deg)}}
+@media (max-width:420px){.dev{padding:20px 16px 16px}.tl{font-size:15px}.tl.t0{font-size:17px}.stampx{right:10px;bottom:14px;font-size:10px}.tx{font-size:11px}}
+@media (prefers-reduced-motion:reduce){.stage *{animation:none!important}}
+
+.stage *{animation:none!important}.stage::before{display:none}
+.ogst{position:absolute;right:64px;top:105px;width:420px;transform:rotate(2deg)}.ogst .stage{max-width:none}
+.ogst p{position:static;width:auto;left:auto;top:auto;color:inherit}
+</style></head><body>
+<div class="logo"><img src="../logo.svg" width="30" height="40"><span>bWriter<span class="g">X</span></span></div>
+<h1>Write it down.<br><span>Keep it forever.</span></h1>
+<p>Bitcoin Writer: every save goes to Bitcoin as a new version, encrypted and timestamped.</p>
+<div class="foot"><b>bwriterx.com</b> · Web and Mac today</div>
+<div class="ogst"><div class="stage" role="img" aria-label="An example document writing itself in Bitcoin Writer, then saved to Bitcoin as version 3, linked to versions 1 and 2, with a timestamp and transaction.">
+    <div class="dev">
+      <div class="sh"><span>Bitcoin Writer</span><span class="example">Example</span></div>
+      <div class="paper">
+        <p class="tl t0">Letter to my daughter</p>
+        <p class="tl t1">Dear Ana, I'm writing this down</p>
+        <p class="tl t2">so it lasts longer than my phones.</p>
+        <p class="tl t3">Love, always. Dad<span class="caret" aria-hidden="true"></span></p>
+        <div class="vers"><span class="v v1">v1</span><i class="a1">&rarr;</i><span class="v v2">v2</span><i class="a2">&rarr;</i><span class="v v3">v3</span></div>
+        <span class="stampx">Saved to chain · v3</span>
+      </div>
+      <div class="tx"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd24d" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>19 Oct 2026 · 14:02</b><br>tx 3f9a…c21e · spends v2</span></div>
+      <div class="chips"><span class="chip">&#10003; Encrypted</span><span class="chip">Timestamped by Bitcoin</span></div>
+    </div>
+  </div>
+</div>
+</body></html>
