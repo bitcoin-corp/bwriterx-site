@@ -200,6 +200,7 @@ html,body{overflow-x:clip}.hero{overflow-x:clip}
     <a class="hide-s" href="#how">How it works</a>
     <a class="hide-s" href="#status">Status</a>
     <a class="btn btn-gold" href="https://bitcoin-writer.vercel.app">Start writing</a>
+    <span data-bwx-connect></span>
   </nav>
 </header>
 
@@ -323,5 +324,7 @@ setTimeout(function(){requestAnimationFrame(function f(t){s=s||t;var k=Math.min(
 if(!('IntersectionObserver' in window))return go();
 var io=new IntersectionObserver(function(e){if(e[0].isIntersecting){io.disconnect();go()}},{threshold:.4});io.observe(st)})();
 </script>
+<script src="https://unpkg.com/@bwalletx/connect@0.5.0/dist/bwalletx-connect.global.js" integrity="sha384-1XiN/accJppMI7qXUHzNrUAdUWIotONkjNy7rZBrwcvPxDCFk1yC83JY2c4LZ8gg" crossorigin="anonymous"></script>
+<script src="/bwx-connect.js"></script>
 </body>
 </html>
